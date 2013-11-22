@@ -1,4 +1,9 @@
 *.log
 *.pot
 *.pyc
-local_settings.py
+*~
+tmp
+
+media
+*.egg-info
+.build
