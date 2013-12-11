@@ -7,3 +7,4 @@ tmp
 media
 *.egg-info
 .build
+default.db
