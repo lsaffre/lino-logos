@@ -10,7 +10,6 @@ class Site(Site):
     #~ languages = 'en de fr et'
     #~ use_jasmine = True
     use_davlink = False
-    use_extensible = False
     use_eid_jslib = False
     remote_user_header = None # 20121003
         
