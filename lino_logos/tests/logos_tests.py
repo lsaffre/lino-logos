@@ -65,7 +65,7 @@ DEMO_OVERVIEW = """\
  contenttypes.FooWithUrl                 3         0
  contenttypes.FooWithoutUrl              2         0
  contenttypes.ProxyModel                 2         0
- countries.City                          8         72
+ countries.Place                         8         72
  countries.Country                       6         8
  bibles.Edition                          4         4
  sessions.Session                        3         4
