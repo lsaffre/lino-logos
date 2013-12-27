@@ -36,8 +36,7 @@ class Site(Site):
     auto_configure_logger_names = 'djangosite north lino lino_logos'
         
     def get_installed_apps(self):
-        for a in super(Site,self).get_installed_apps():
-            yield a
+        yield super(Site,self).get_installed_apps()
             
         yield 'django.contrib.contenttypes'
         yield 'django.contrib.humanize'
