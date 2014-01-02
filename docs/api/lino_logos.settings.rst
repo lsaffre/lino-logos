@@ -1,24 +1,17 @@
-settings Package
-================
+lino_logos.settings package
+===========================
 
-:mod:`settings` Package
------------------------
+Submodules
+----------
+
+.. toctree::
+
+   lino_logos.settings.demo
+   lino_logos.settings.memory
+
+Module contents
+---------------
 
 .. automodule:: lino_logos.settings
     :members:
     :show-inheritance:
-
-:mod:`demo` Module
-------------------
-
-.. automodule:: lino_logos.settings.demo
-    :members:
-    :show-inheritance:
-
-:mod:`memory` Module
---------------------
-
-.. automodule:: lino_logos.settings.memory
-    :members:
-    :show-inheritance:
-

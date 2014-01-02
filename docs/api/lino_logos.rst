@@ -1,19 +1,5 @@
-lino_logos Package
+lino_logos package
 ==================
-
-:mod:`lino_logos` Package
--------------------------
-
-.. automodule:: lino_logos
-    :members:
-    :show-inheritance:
-
-:mod:`project_info` Module
---------------------------
-
-.. automodule:: lino_logos.project_info
-    :members:
-    :show-inheritance:
 
 Subpackages
 -----------
@@ -24,3 +10,16 @@ Subpackages
     lino_logos.settings
     lino_logos.tests
 
+Submodules
+----------
+
+.. toctree::
+
+   lino_logos.project_info
+
+Module contents
+---------------
+
+.. automodule:: lino_logos
+    :members:
+    :show-inheritance:

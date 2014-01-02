@@ -1,38 +1,20 @@
-fixtures Package
-================
+lino_logos.apps.bibles.fixtures package
+=======================================
 
-:mod:`demo` Module
-------------------
+Submodules
+----------
 
-.. automodule:: lino_logos.apps.bibles.fixtures.demo
+.. toctree::
+
+   lino_logos.apps.bibles.fixtures.demo
+   lino_logos.apps.bibles.fixtures.eng_kjv
+   lino_logos.apps.bibles.fixtures.eng_oeb
+   lino_logos.apps.bibles.fixtures.est_eps
+   lino_logos.apps.bibles.fixtures.oeb2lino
+
+Module contents
+---------------
+
+.. automodule:: lino_logos.apps.bibles.fixtures
     :members:
     :show-inheritance:
-
-:mod:`eng_kjv` Module
----------------------
-
-.. automodule:: lino_logos.apps.bibles.fixtures.eng_kjv
-    :members:
-    :show-inheritance:
-
-:mod:`eng_oeb` Module
----------------------
-
-.. automodule:: lino_logos.apps.bibles.fixtures.eng_oeb
-    :members:
-    :show-inheritance:
-
-:mod:`est_eps` Module
----------------------
-
-.. automodule:: lino_logos.apps.bibles.fixtures.est_eps
-    :members:
-    :show-inheritance:
-
-:mod:`oeb2lino` Module
-----------------------
-
-.. automodule:: lino_logos.apps.bibles.fixtures.oeb2lino
-    :members:
-    :show-inheritance:
-

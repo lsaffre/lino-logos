@@ -1,17 +1,16 @@
-tests Package
-=============
+lino_logos.tests package
+========================
 
-:mod:`tests` Package
---------------------
+Submodules
+----------
+
+.. toctree::
+
+   lino_logos.tests.logos_tests
+
+Module contents
+---------------
 
 .. automodule:: lino_logos.tests
     :members:
     :show-inheritance:
-
-:mod:`logos_tests` Module
--------------------------
-
-.. automodule:: lino_logos.tests.logos_tests
-    :members:
-    :show-inheritance:
-
