@@ -1,6 +1,11 @@
 lino_logos.apps.bibles.fixtures package
 =======================================
 
+.. automodule:: lino_logos.apps.bibles.fixtures
+    :members:
+    :show-inheritance:
+
+
 Submodules
 ----------
 
@@ -12,9 +17,3 @@ Submodules
    lino_logos.apps.bibles.fixtures.est_eps
    lino_logos.apps.bibles.fixtures.oeb2lino
 
-Module contents
----------------
-
-.. automodule:: lino_logos.apps.bibles.fixtures
-    :members:
-    :show-inheritance:

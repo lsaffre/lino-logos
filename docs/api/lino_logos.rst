@@ -1,6 +1,11 @@
 lino_logos package
 ==================
 
+.. automodule:: lino_logos
+    :members:
+    :show-inheritance:
+
+
 Subpackages
 -----------
 
@@ -17,9 +22,3 @@ Submodules
 
    lino_logos.project_info
 
-Module contents
----------------
-
-.. automodule:: lino_logos
-    :members:
-    :show-inheritance:

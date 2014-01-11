@@ -1,6 +1,11 @@
 lino_logos.settings package
 ===========================
 
+.. automodule:: lino_logos.settings
+    :members:
+    :show-inheritance:
+
+
 Submodules
 ----------
 
@@ -9,9 +14,3 @@ Submodules
    lino_logos.settings.demo
    lino_logos.settings.memory
 
-Module contents
----------------
-
-.. automodule:: lino_logos.settings
-    :members:
-    :show-inheritance:

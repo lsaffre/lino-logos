@@ -1,6 +1,11 @@
 lino_logos.tests package
 ========================
 
+.. automodule:: lino_logos.tests
+    :members:
+    :show-inheritance:
+
+
 Submodules
 ----------
 
@@ -8,9 +13,3 @@ Submodules
 
    lino_logos.tests.logos_tests
 
-Module contents
----------------
-
-.. automodule:: lino_logos.tests
-    :members:
-    :show-inheritance:

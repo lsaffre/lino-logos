@@ -1,6 +1,11 @@
 lino_logos.apps package
 =======================
 
+.. automodule:: lino_logos.apps
+    :members:
+    :show-inheritance:
+
+
 Subpackages
 -----------
 
@@ -8,9 +13,3 @@ Subpackages
 
     lino_logos.apps.bibles
 
-Module contents
----------------
-
-.. automodule:: lino_logos.apps
-    :members:
-    :show-inheritance:
