@@ -41,7 +41,7 @@ settings.SITE.title = "Lino-Logos Reference Manual"
 
 #~ extensions.append('sphinxcontrib.autorun')
 
-extensions.append('atelier.sphinxconf.blog')
+# extensions.append('atelier.sphinxconf')
 
 
 primary_domain = 'py'
