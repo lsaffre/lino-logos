@@ -25,8 +25,6 @@ class Site(Site):
     
     demo_fixtures = 'std few_languages demo demo2'.split()
     
-    #~ migration_module = 'lino_logos.migrate'
-    
     userdocs_prefix = 'logos.'
     
     user_model = 'users.User'
