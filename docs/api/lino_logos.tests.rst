@@ -5,7 +5,6 @@ lino_logos.tests package
     :members:
     :show-inheritance:
 
-
 Submodules
 ----------
 

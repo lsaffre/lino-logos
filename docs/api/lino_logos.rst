@@ -5,7 +5,6 @@ lino_logos package
     :members:
     :show-inheritance:
 
-
 Subpackages
 -----------
 

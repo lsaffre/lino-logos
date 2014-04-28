@@ -5,7 +5,6 @@ lino_logos.apps.bibles package
     :members:
     :show-inheritance:
 
-
 Subpackages
 -----------
 

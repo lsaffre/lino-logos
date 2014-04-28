@@ -5,7 +5,6 @@ lino_logos.apps.bibles.fixtures package
     :members:
     :show-inheritance:
 
-
 Submodules
 ----------
 
