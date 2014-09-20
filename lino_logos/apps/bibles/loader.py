@@ -18,7 +18,7 @@ from __future__ import unicode_literals
 
 import re
 
-from lino import dd
+from lino import dd, rt
 
 Section = dd.resolve_model('bibles.Section')
 Verse = dd.resolve_model('bibles.Verse')
