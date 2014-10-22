@@ -8,3 +8,4 @@ media
 *.egg-info
 .build
 default.db
+.idea
