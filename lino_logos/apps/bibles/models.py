@@ -42,9 +42,10 @@ from lino_logos.apps.bibles import Plugin
 from lino.utils import AttrDict
 from lino.utils.xmlgen.html import E
 
+
 def headertag(level):
     tagname = "h" + str(level)
-    return getattr(E,tagname)
+    return getattr(E, tagname)
 
 #~ contacts = dd.resolve_app('contacts')
 #~ countries = dd.resolve_app('countries')
@@ -70,7 +71,7 @@ languages = dd.resolve_app('languages')
 
 
 
-class Book(dd.BabelNamed,dd.Sequenced):
+class Book(mixins.BabelNamed,mixins.Sequenced):
     ref = models.CharField(_("Ref"),max_length=20,unique=True)
     abbr = dd.BabelCharField(_("Abbreviation"),max_length=20)
     
@@ -95,7 +96,7 @@ class Editions(dd.Table):
     """
     
 
-class Section(dd.Hierarizable):
+class Section(mixins.Hierarizable):
     
     edition = dd.ForeignKey(Edition)
     title = models.CharField(_("Title"),max_length=200)
@@ -147,7 +148,7 @@ class SectionsByEdition(Sections):
     column_names = "title"
     auto_fit_column_widths = True
     
-#~ class Verse(dd.Sequenced):
+#~ class Verse(mixins.Sequenced):
 class Verse(dd.Model):
     class Meta:
         verbose_name = _("Verse") 
