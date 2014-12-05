@@ -31,12 +31,12 @@ class Site(Site):
     
    
     languages = "en de fr et"
-    auto_configure_logger_names = 'djangosite north lino lino_logos'
+    auto_configure_logger_names = 'djangosite lino lino_logos'
         
     def get_installed_apps(self):
         yield super(Site,self).get_installed_apps()
             
-        yield 'django.contrib.contenttypes'
+        yield 'lino.modlib.contenttypes'
         yield 'django.contrib.humanize'
         yield 'lino.modlib.system'
         yield 'lino.modlib.users'
@@ -48,6 +48,6 @@ class Site(Site):
         yield 'lino_logos.apps.bibles'
       
 
-# LOGGING['logger_names'] = 'djangosite north lino lino_logos'
+# LOGGING['logger_names'] = 'djangosite lino lino_logos'
 
 
