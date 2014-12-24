@@ -9,4 +9,5 @@ setup_from_project('lino_logos','lino_logos.settings.demo')
 
 #~ env.languages = 'en fr nl'.split()
 
-env.use_mercurial = False  # i.e. use git
+env.revision_control_system = 'git'
+

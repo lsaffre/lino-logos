@@ -35,7 +35,7 @@ from django.utils.translation import string_concat
 from django.utils.encoding import force_unicode 
 from django.utils.functional import lazy
 
-from lino import dd, rt
+from lino import dd, mixins
 
 from lino_logos.apps.bibles import Plugin
 
@@ -71,7 +71,7 @@ languages = dd.resolve_app('languages')
 
 
 
-class Book(mixins.BabelNamed,mixins.Sequenced):
+class Book(mixins.BabelNamed, mixins.Sequenced):
     ref = models.CharField(_("Ref"),max_length=20,unique=True)
     abbr = dd.BabelCharField(_("Abbreviation"),max_length=20)
     
