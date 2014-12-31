@@ -25,3 +25,4 @@ from django.utils.translation import ugettext_lazy as _
 class Plugin(ad.Plugin):
     verbose_name = _("Bibles")
 
+    needs_plugins = ['lino.modlib.languages']
