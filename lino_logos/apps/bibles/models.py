@@ -310,19 +310,3 @@ class SideBySideVerses(VersesParams,dd.VirtualTable):
         return obj.right
 
 
-def setup_main_menu(site, ui, profile, m):
-    m = m.add_menu("bibles", Plugin.verbose_name)
-    m.add_action(Editions)
-    m.add_action(Verses)
-    m.add_action(SideBySideVerses)
-
-
-def setup_config_menu(site, ui, profile, m):
-    m = m.add_menu("bibles", Plugin.verbose_name)
-    m.add_action(Books)
-    
-
-def setup_explorer_menu(site, ui, profile, m):
-    m = m.add_menu("bibles", Plugin.verbose_name)
-    m.add_action(Sections)
-
