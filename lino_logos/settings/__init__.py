@@ -27,8 +27,6 @@ class Site(Site):
     
     userdocs_prefix = 'logos.'
     
-    user_model = 'users.User'
-   
     languages = "en de fr et"
     auto_configure_logger_names = 'djangosite lino lino_logos'
         
