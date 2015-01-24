@@ -17,7 +17,7 @@ from lino.utils.pythontest import TestCase
 
 
 class BaseTestCase(TestCase):
-    demo_settings_module = "lino_logos.settings.demo"
+    django_settings_module = "lino_logos.settings.demo"
     project_root = ROOTDIR
 
 
