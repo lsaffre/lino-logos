@@ -15,7 +15,7 @@
 """
 """
 
-from lino import dd, rt
+from lino.api import dd, rt
 
 
 def objects():
