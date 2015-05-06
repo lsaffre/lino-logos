@@ -10,6 +10,12 @@
 
 import sys, os
 
+from django.utils.importlib import import_module
+intersphinx_mapping = {}
+for n in 'atelier lino'.split():
+    m = import_module(n)
+    intersphinx_mapping[n] = (m.intersphinx_urls['docs'], None)
+
 from atelier.sphinxconf import configure
 configure(globals(),'lino_logos.settings.demo')
 
@@ -118,7 +124,7 @@ pygments_style = 'sphinx'
 # The style sheet to use for HTML and HTML Help pages. A file of that name
 # must exist either in Sphinx' static/ path, or in one of the custom paths
 # given in html_static_path.
-html_style = 'default.css'
+# html_style = 'default.css'
 
 # The name for this set of Sphinx documents.  If None, it defaults to
 # "<project> v<release> documentation".
@@ -204,7 +210,7 @@ htmlhelp_basename = 'bibles'
 
 # http://sphinx.pocoo.org/theming.html
 #~ html_theme = "default"
-html_theme_options = dict(collapsiblesidebar=True,externalrefs=True)
+# html_theme_options = dict(collapsiblesidebar=True,externalrefs=True)
 
 #~ todo_include_todos = True
 
