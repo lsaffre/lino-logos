@@ -35,7 +35,7 @@ class Site(Site):
             
         yield 'lino.modlib.contenttypes'
         yield 'django.contrib.humanize'
-        yield 'lino.modlib.system'
+        # yield 'lino.modlib.system'
         yield 'lino.modlib.users'
         #~ yield 'lino.modlib.changes'
         #~ yield 'lino.modlib.countries'
