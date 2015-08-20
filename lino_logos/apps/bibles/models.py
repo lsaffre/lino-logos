@@ -97,7 +97,7 @@ class Editions(dd.Table):
     """
     
 
-class Section(mixins.Hierarizable):
+class Section(mixins.Hierarchical):
     
     edition = dd.ForeignKey(Edition)
     title = models.CharField(_("Title"),max_length=200)
