@@ -12,4 +12,5 @@ add_demo_project('lino_logos.projects.sacred.settings.demo')
 #~ env.languages = 'en fr nl'.split()
 
 env.revision_control_system = 'git'
+env.cleanable_files = ['docs/api/lino_logos.*']
 

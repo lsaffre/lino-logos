@@ -24,7 +24,7 @@ Content
 
    install
    tested/index
-   API <api/lino_logos>
+   api/index
    idea
    todo
    changes
