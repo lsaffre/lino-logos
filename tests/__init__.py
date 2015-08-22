@@ -10,8 +10,8 @@ from unipath import Path
 
 ROOTDIR = Path(__file__).parent.parent
 
-# load  SETUP_INFO:
-execfile(ROOTDIR.child('lino_logos', 'project_info.py'), globals())
+# SETUP_INFO = dict()
+# execfile(ROOTDIR.child('lino_logos', 'setup_info.py'), globals())
 
 from lino.utils.pythontest import TestCase
 
@@ -26,7 +26,7 @@ class DemoTests(BaseTestCase):
     $ python setup.py test -s tests.DemoTests.test_admin
     """
     def test_admin(self):
-        self.run_django_manage_test()
+        self.run_django_manage_test('lino_logos/projects/sacred')
 
 
 class DocsTests(BaseTestCase):
@@ -36,4 +36,5 @@ class DocsTests(BaseTestCase):
 
 class PackagesTests(BaseTestCase):
     def test_packages(self):
-        self.run_packages_test(SETUP_INFO['packages'])
+        import lino_logos
+        self.run_packages_test(lino_logos.SETUP_INFO['packages'])

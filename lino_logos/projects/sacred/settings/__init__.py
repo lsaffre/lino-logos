@@ -28,23 +28,15 @@ class Site(Site):
     userdocs_prefix = 'logos.'
     
     languages = "en de fr et"
-    auto_configure_logger_names = 'djangosite lino lino_logos'
+    auto_configure_logger_names = 'lino lino_logos'
         
     def get_installed_apps(self):
         yield super(Site, self).get_installed_apps()
             
         yield 'lino.modlib.gfks'
         yield 'django.contrib.humanize'
-        # yield 'lino.modlib.system'
         yield 'lino.modlib.users'
-        #~ yield 'lino.modlib.changes'
-        #~ yield 'lino.modlib.countries'
-        #~ yield 'lino.modlib.contacts'
-        #  yield 'lino.modlib.languages'  # comes automaticaly with bibles
         yield 'lino.modlib.comments'
-        yield 'lino_logos.apps.bibles'
+        yield 'lino_logos.lib.bibles'
       
-
-# LOGGING['logger_names'] = 'djangosite lino lino_logos'
-
 

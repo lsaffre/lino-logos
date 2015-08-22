@@ -13,7 +13,7 @@
 ## along with Lino; if not, see <http://www.gnu.org/licenses/>.
 
 """
-The `models` module for :mod:`lino_logos.apps.bibles`.
+The `models` module for `lino_logos.lib.bibles`.
 
 """
 
@@ -37,8 +37,6 @@ from django.utils.functional import lazy
 
 from lino.api import dd
 from lino import mixins
-
-from lino_logos.apps.bibles import Plugin
 
 from lino.utils import AttrDict
 from lino.utils.xmlgen.html import E
@@ -71,49 +69,49 @@ languages = dd.resolve_app('languages')
 #~ Books.add_item("103",_("Leviticus"),"leviticus",_("Ex"))
 
 
+class Book(mixins.BabelNamed, mixins.Hierarchical):
+    ref = models.CharField(_("Ref"), max_length=20, unique=True)
+    abbr = dd.BabelCharField(_("Abbreviation"), max_length=20)
+    
 
-class Book(mixins.BabelNamed, mixins.Sequenced):
-    ref = models.CharField(_("Ref"),max_length=20,unique=True)
-    abbr = dd.BabelCharField(_("Abbreviation"),max_length=20)
-    
 class Books(dd.Table):
-    model = Book
-    
-    
+    model = 'bibles.Book'
+        
     
 class Edition(dd.Model):
-    name = models.CharField(_("Name"),max_length=200)
-    abbr = models.CharField(_("Abbreviation"),max_length=20)
-    language = dd.ForeignKey('languages.Language',blank=True,null=True)
+    name = models.CharField(_("Name"), max_length=200)
+    abbr = models.CharField(_("Abbreviation"), max_length=20)
+    language = dd.ForeignKey('languages.Language', blank=True, null=True)
     
     def __unicode__(self):
         return self.abbr
     
+
 class Editions(dd.Table):
-    model = Edition
+    model = 'bibles.Edition'
     detail_layout = """
     abbr name language id
     SectionsByEdition comments.CommentsByController
     """
     
 
-class Section(mixins.Hierarchical):
+class Section(mixins.Sequenced, mixins.Hierarchical):
     
     edition = dd.ForeignKey(Edition)
-    title = models.CharField(_("Title"),max_length=200)
+    title = models.CharField(_("Title"), max_length=200)
     
     class Meta:
-        verbose_name = _("Section") 
+        verbose_name = _("Section")
         verbose_name_plural = _("Sections")
         
     def __unicode__(self):
         return self.title
         
     @dd.virtualfield(dd.HtmlBox(_("Preview")))
-    def preview(self,ar):
+    def preview(self, ar):
         return E.div(*self.get_html_chunks())
         
-    def get_html_chunks(self,level=1):
+    def get_html_chunks(self, level=1):
         h = headertag(level)
         if self.title:
             yield h(self.title)
@@ -127,47 +125,51 @@ class Section(mixins.Hierarchical):
         for s in Section.objects.filter(parent=self).order_by('seqno'):
             for chunk in s.get_html_chunks(level):
                 yield chunk
-    
+
+
 class SectionLayout(dd.FormLayout):
     main = "elements preview"
     elements = dd.Panel("""
     parent seqno id edition
     VerseTextsBySection
     SectionsBySection
-    """,label=_("Elements"))
+    """, label=_("Elements"))
     
+
 class Sections(dd.Table):
     model = Section
     detail_layout = SectionLayout()
+
     
 class SectionsBySection(Sections):
     master_key = 'parent'
     
+
 class SectionsByEdition(Sections):
     master_key = 'edition'
     filter = models.Q(parent__isnull=True)
     column_names = "title"
     auto_fit_column_widths = True
     
-#~ class Verse(mixins.Sequenced):
+
 class Verse(dd.Model):
     class Meta:
         verbose_name = _("Verse") 
         verbose_name_plural = _("Verses")
-        ordering = ['verseno','verseno_suffix']
+        ordering = ['verseno', 'verseno_suffix']
         
     book = dd.ForeignKey(Book)
     chapter = models.IntegerField(_("Chapter"))
     #~ book = Books.field()
-    verseno = models.IntegerField(_("Number"),help_text=_("Verse number"))
-    verseno_suffix= models.CharField(_("Suffix"),
-        max_length=5,
-        blank=True,
+    verseno = models.IntegerField(_("Number"), help_text=_("Verse number"))
+    verseno_suffix = models.CharField(
+        _("Suffix"), max_length=5, blank=True,
         help_text=_("Optional a,b,c behind verse number"))
         
     def __unicode__(self):
         return _("%(book)s %(chapter)d:%(verseno)s") % dict(
-            book=self.book.abbr,chapter=self.chapter,verseno=self.verseno)
+            book=self.book.abbr, chapter=self.chapter, verseno=self.verseno)
+
 
 class VerseText(dd.Model):
     "The text of a given Verse in a given Edition"
@@ -178,17 +180,17 @@ class VerseText(dd.Model):
     verse = dd.ForeignKey(Verse)
     edition = dd.ForeignKey(Edition)
     text = models.TextField(_("Text"))
-    section = dd.ForeignKey(Section,blank=True,null=True)
+    section = dd.ForeignKey(Section, blank=True, null=True)
 
         
 class VersesParams(object):
     parameters = dict(
-        p_edition = dd.ForeignKey(Edition),
-        p_chapter = models.IntegerField(_("Chapter"),blank=True,null=True),
-        p_book = dd.ForeignKey(Book,blank=True,null=True),
-        #~ p_book = Books.field(blank=True,null=True)
+        p_edition=dd.ForeignKey(Edition),
+        p_chapter=models.IntegerField(_("Chapter"), blank=True, null=True),
+        p_book=dd.ForeignKey(Book,blank=True,null=True)
     )
     params_layout = "p_edition p_book p_chapter"
+
     @dd.chooser(simple_values=True)
     def p_chapter_choices(cls):
     #~ def p_chapter_choices(cls,p_edition,p_book):
@@ -201,21 +203,23 @@ class VersesParams(object):
             #~ print 20131012, chapters
             chapters = list(set(chapters))
             return chapters
-        return range(1,99)
+        return range(1, 99)
 
 
-class Verses(VersesParams,dd.Table):
+class Verses(VersesParams, dd.Table):
     model = Verse
-    order_by = ['verseno','verseno_suffix']
+    order_by = ['verseno', 'verseno_suffix']
     detail_layout = """
     book chapter verseno verseno_suffix id
     VerseTextsByVerse:40 comments.CommentsByController:20
     """
     #~ column_names = "verseno text"
     
+
 class VerseTexts(dd.Table):
     model = VerseText
     variable_row_height = True
+
     
 class VerseTextsByVerse(VerseTexts):
     master_key = 'verse'
@@ -245,20 +249,18 @@ class VerseTextsByVerse(VerseTexts):
             #~ qs = qs.filter(chapter=ar.param_values.p_chapter)
             #~ 
         #~ return qs
-    #~ 
-#~ 
+
+
 class VerseTextsBySection(VerseTexts):
     master_key = 'section'
     column_names = "verse text"
     auto_fit_column_widths = True
  
-
-    
-LEFT = _("Left")    
+LEFT = _("Left")
 RIGHT = _("Right")
 
 
-class SideBySideVerses(VersesParams,dd.VirtualTable):
+class SideBySideVerses(VersesParams, dd.VirtualTable):
     parameters = dict(
         edition1 = dd.ForeignKey(Edition,verbose_name=LEFT),
         edition2 = dd.ForeignKey(Edition,verbose_name=RIGHT),
@@ -267,7 +269,7 @@ class SideBySideVerses(VersesParams,dd.VirtualTable):
         #~ p_book = Books.field(blank=True,null=True)
     )
     
-    params_layout = "edition1 edition2 p_book p_chapter"    
+    params_layout = "edition1 edition2 p_book p_chapter"
     auto_fit_column_widths = True
     variable_row_height = True
     

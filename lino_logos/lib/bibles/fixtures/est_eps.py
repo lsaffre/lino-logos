@@ -21,7 +21,7 @@ found on http://www.piibel.net/ (copyright Eesti Piibli Selts).
 
 from __future__ import unicode_literals
 
-from lino_logos.apps.bibles.loader import *
+from lino_logos.lib.bibles.loader import *
 
 def objects():
     

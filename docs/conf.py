@@ -17,7 +17,7 @@ for n in 'atelier lino'.split():
     intersphinx_mapping[n] = (m.intersphinx_urls['docs'], None)
 
 from atelier.sphinxconf import configure
-configure(globals(),'lino_logos.settings.demo')
+configure(globals(),'lino_logos.projects.sacred.settings.demo')
 
 
 from django.conf import settings

@@ -1,16 +1,5 @@
 # -*- coding: UTF-8 -*-
 ## Copyright 2013 Luc Saffre
-## This file is part of the Lino Logos project.
-## Lino Logos is free software; you can redistribute it and/or modify
-## it under the terms of the GNU General Public License as published by
-## the Free Software Foundation; either version 3 of the License, or
-## (at your option) any later version.
-## Lino Logos is distributed in the hope that it will be useful,
-## but WITHOUT ANY WARRANTY; without even the implied warranty of
-## MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-## GNU General Public License for more details.
-## You should have received a copy of the GNU General Public License
-## along with Lino Logos; if not, see <http://www.gnu.org/licenses/>.
 
 SETUP_INFO = dict(
     name='lino-logos',
@@ -91,10 +80,13 @@ Topic :: Office/Business :: Scheduling
 
 SETUP_INFO.update(packages=[
     'lino_logos',
-    'lino_logos.settings',
-    'lino_logos.apps',
-    'lino_logos.apps.bibles',
-    'lino_logos.apps.bibles.fixtures',
+    'lino_logos.projects',
+    'lino_logos.projects.sacred',
+    'lino_logos.projects.sacred.settings',
+    'lino_logos.projects.sacred.tests',
+    'lino_logos.lib',
+    'lino_logos.lib.bibles',
+    'lino_logos.lib.bibles.fixtures',
     'lino_logos.tests',
 ])
 

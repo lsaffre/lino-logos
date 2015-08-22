@@ -45,18 +45,18 @@ def objects():
                "Mattäus", "Mt",
                "Matteuse", "Mt")
 
-    from lino_logos.apps.bibles.fixtures.eng_kjv import objects
+    from lino_logos.lib.bibles.fixtures.eng_kjv import objects
     yield objects()
 
-    from lino_logos.apps.bibles.fixtures.eng_oeb import objects
+    from lino_logos.lib.bibles.fixtures.eng_oeb import objects
     yield objects()
 
-    from lino_logos.apps.bibles.fixtures.est_eps import objects
+    from lino_logos.lib.bibles.fixtures.est_eps import objects
     yield objects()
 
-    #~ from lino_logos.apps.bibles.fixtures.ger_einheits import objects
+    #~ from lino_logos.lib.bibles.fixtures.ger_einheits import objects
     #~ yield objects()
 
-    # from lino_logos.apps.bibles.fixtures.ger_eb import objects
+    # from lino_logos.lib.bibles.fixtures.ger_eb import objects
     # yield objects()
 
