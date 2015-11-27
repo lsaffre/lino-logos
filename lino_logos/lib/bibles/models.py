@@ -38,6 +38,7 @@ from django.utils.functional import lazy
 from lino.api import dd
 from lino import mixins
 
+from lino.modlib.comments.mixins import RFC
 from lino.utils import AttrDict
 from lino.utils.xmlgen.html import E
 
@@ -78,7 +79,7 @@ class Books(dd.Table):
     model = 'bibles.Book'
         
     
-class Edition(dd.Model):
+class Edition(RFC):
     name = models.CharField(_("Name"), max_length=200)
     abbr = models.CharField(_("Abbreviation"), max_length=20)
     language = dd.ForeignKey('languages.Language', blank=True, null=True)
@@ -91,7 +92,7 @@ class Editions(dd.Table):
     model = 'bibles.Edition'
     detail_layout = """
     abbr name language id
-    SectionsByEdition comments.CommentsByController
+    SectionsByEdition comments.CommentsByRFC
     """
     
 
@@ -152,9 +153,9 @@ class SectionsByEdition(Sections):
     auto_fit_column_widths = True
     
 
-class Verse(dd.Model):
+class Verse(RFC):
     class Meta:
-        verbose_name = _("Verse") 
+        verbose_name = _("Verse")
         verbose_name_plural = _("Verses")
         ordering = ['verseno', 'verseno_suffix']
         
@@ -174,7 +175,7 @@ class Verse(dd.Model):
 class VerseText(dd.Model):
     "The text of a given Verse in a given Edition"
     class Meta:
-        verbose_name = _("Verse") 
+        verbose_name = _("Verse")
         verbose_name_plural = _("Verses")
         
     verse = dd.ForeignKey(Verse)
@@ -211,7 +212,7 @@ class Verses(VersesParams, dd.Table):
     order_by = ['verseno', 'verseno_suffix']
     detail_layout = """
     book chapter verseno verseno_suffix id
-    VerseTextsByVerse:40 comments.CommentsByController:20
+    VerseTextsByVerse:40 comments.CommentsByRFC:20
     """
     #~ column_names = "verseno text"
     
