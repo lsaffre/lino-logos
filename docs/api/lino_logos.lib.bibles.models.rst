@@ -28,6 +28,7 @@ lino_logos.lib.bibles.models
       Books
       Edition
       Editions
+      RFC
       Section
       SectionLayout
       Sections
