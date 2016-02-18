@@ -13,11 +13,7 @@ lino_logos.lib.bibles.loader
 
    .. autosummary::
    
-      Edition
       Loader
-      Section
-      Verse
-      VerseText
    
    
 

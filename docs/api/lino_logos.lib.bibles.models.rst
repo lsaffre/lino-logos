@@ -9,11 +9,7 @@ lino_logos.lib.bibles.models
 
    .. autosummary::
    
-      force_unicode
       headertag
-      lazy
-      mark_safe
-      string_concat
    
    
 
@@ -23,12 +19,10 @@ lino_logos.lib.bibles.models
 
    .. autosummary::
    
-      AttrDict
       Book
       Books
       Edition
       Editions
-      RFC
       Section
       SectionLayout
       Sections
@@ -46,12 +40,5 @@ lino_logos.lib.bibles.models
    
 
    
-   
-   .. rubric:: Exceptions
-
-   .. autosummary::
-   
-      MultipleObjectsReturned
-      ValidationError
    
    
