@@ -15,6 +15,8 @@
 """
 """
 
+from __future__ import unicode_literals
+
 from lino.api import dd, rt
 
 
