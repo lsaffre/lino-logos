@@ -7,12 +7,16 @@ A Lino application for managing bible editions
 Description
 -----------
 
-Lino Logos is a `Lino <http://www.lino-framework.org>`_
+Lino Logos is a `Lino <http://www.lino-framework.org>`__
 application for discussing about bible verses.
 
 It is one of the two prototypes which I wrote for the SacredPy
 project. (The other prototype is
 `Lino Polly <http://lino-framework.org/polly/>`_.)
+
+The central project homepage is http://logos.lino-framework.org
+
+
 
 TODO:
 
