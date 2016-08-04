@@ -2,10 +2,11 @@
 *.pot
 *.pyc
 *~
-tmp
+tmp/
 
-media
+media/
 *.egg-info
 .build
 default.db
 .idea
+.eggs/

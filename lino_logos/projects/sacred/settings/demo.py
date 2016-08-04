@@ -14,4 +14,4 @@ class Site(Site):
     remote_user_header = None # 20121003
         
 SITE = Site(globals())
-#~ print 20130409, __file__, LOGGING
+DEBUG = True
