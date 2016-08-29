@@ -1,11 +1,8 @@
 ==========================
-lino-logos README
+The ``lino-logos`` package
 ==========================
 
-A Lino application for managing bible editions
 
-Description
------------
 
 Lino Logos is a `Lino <http://www.lino-framework.org>`__
 application for discussing about bible verses.
@@ -63,5 +60,3 @@ TODO:
 
 
 
-
-Read more on http://logos.lino-framework.org
