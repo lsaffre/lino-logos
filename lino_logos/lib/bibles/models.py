@@ -128,7 +128,7 @@ class Section(mixins.Sequenced, mixins.Hierarchical):
                 yield chunk
 
 
-class SectionLayout(dd.FormLayout):
+class SectionLayout(dd.DetailLayout):
     main = "elements preview"
     elements = dd.Panel("""
     parent seqno id edition
