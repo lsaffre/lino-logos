@@ -38,7 +38,7 @@ from django.utils.functional import lazy
 from lino.api import dd
 from lino import mixins
 
-from lino.modlib.comments.mixins import RFC
+from lino.modlib.comments.mixins import Commentable
 from lino.utils import AttrDict
 from lino.utils.xmlgen.html import E
 
@@ -79,7 +79,7 @@ class Books(dd.Table):
     model = 'bibles.Book'
         
     
-class Edition(RFC):
+class Edition(Commentable):
     name = models.CharField(_("Name"), max_length=200)
     abbr = models.CharField(_("Abbreviation"), max_length=20)
     language = dd.ForeignKey('languages.Language', blank=True, null=True)
@@ -153,7 +153,7 @@ class SectionsByEdition(Sections):
     auto_fit_column_widths = True
     
 
-class Verse(RFC):
+class Verse(Commentable):
     class Meta:
         verbose_name = _("Verse")
         verbose_name_plural = _("Verses")
