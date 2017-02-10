@@ -92,7 +92,7 @@ class Editions(dd.Table):
     model = 'bibles.Edition'
     detail_layout = """
     abbr name language id
-    SectionsByEdition comments.CommentsByRFC
+    SectionsByEdition
     """
     
 
