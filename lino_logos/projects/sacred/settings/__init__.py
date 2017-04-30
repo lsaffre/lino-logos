@@ -40,8 +40,8 @@ class Site(Site):
         yield 'lino_logos.lib.bibles'
       
 
-    def setup_plugins(self):
-        """
-        """
-        self.plugins.comments.configure(commentable_model='bibles.Verse')
-        super(Site, self).setup_plugins()
+    # def setup_plugins(self):
+    #     """
+    #     """
+    #     self.plugins.comments.configure(commentable_model='bibles.Verse')
+    #     super(Site, self).setup_plugins()
