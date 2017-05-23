@@ -1,5 +1,5 @@
-lino_logos.projects
-===================
+lino\_logos\.projects
+=====================
 
 .. automodule:: lino_logos.projects
 

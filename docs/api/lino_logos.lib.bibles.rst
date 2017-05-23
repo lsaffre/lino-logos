@@ -1,5 +1,5 @@
-lino_logos.lib.bibles
-=====================
+lino\_logos\.lib\.bibles
+========================
 
 .. automodule:: lino_logos.lib.bibles
 

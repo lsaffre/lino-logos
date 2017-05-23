@@ -1,5 +1,5 @@
-lino_logos.lib.bibles.models
-============================
+lino\_logos\.lib\.bibles\.models
+================================
 
 .. automodule:: lino_logos.lib.bibles.models
 
@@ -9,11 +9,7 @@ lino_logos.lib.bibles.models
 
    .. autosummary::
    
-      force_text
       headertag
-      lazy
-      mark_safe
-      string_concat
    
    
 
@@ -23,10 +19,8 @@ lino_logos.lib.bibles.models
 
    .. autosummary::
    
-      AttrDict
       Book
       Books
-      Commentable
       Edition
       Editions
       Section
@@ -46,12 +40,5 @@ lino_logos.lib.bibles.models
    
 
    
-   
-   .. rubric:: Exceptions
-
-   .. autosummary::
-   
-      MultipleObjectsReturned
-      ValidationError
    
    

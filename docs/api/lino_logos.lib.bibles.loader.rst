@@ -1,5 +1,5 @@
-lino_logos.lib.bibles.loader
-============================
+lino\_logos\.lib\.bibles\.loader
+================================
 
 .. automodule:: lino_logos.lib.bibles.loader
 
@@ -13,11 +13,7 @@ lino_logos.lib.bibles.loader
 
    .. autosummary::
    
-      Edition
       Loader
-      Section
-      Verse
-      VerseText
    
    
 
