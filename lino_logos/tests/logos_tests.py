@@ -72,10 +72,10 @@ DEMO_OVERVIEW = """\
  system.HelpText                         4         2
  system.SiteConfig                       4         1
  system.TextFieldTemplate                6         2
- users.Authority                         3         0
- users.Membership                        3         0
- users.Team                              4         0
- users.User                              13        3
+ auth.Authority                         3         0
+ auth.Membership                        3         0
+ auth.Team                              4         0
+ auth.User                              13        3
 ======================================= ========= =======
 """
 

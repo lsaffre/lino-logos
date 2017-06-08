@@ -35,7 +35,7 @@ class Site(Site):
             
         yield 'lino.modlib.gfks'
         yield 'django.contrib.humanize'
-        yield 'lino.modlib.users'
+        yield 'lino.modlib.auth'
         yield 'lino.modlib.comments'
         yield 'lino_logos.lib.bibles'
       
