@@ -10,3 +10,5 @@ media/
 default.db
 .idea
 .eggs/
+docs/api/lino_logos.*
+
