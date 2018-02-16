@@ -40,7 +40,7 @@ from lino import mixins
 
 from lino.modlib.comments.mixins import Commentable
 from lino.utils import AttrDict
-from lino.utils.xmlgen.html import E
+from etgen.html import E
 
 
 def headertag(level):
