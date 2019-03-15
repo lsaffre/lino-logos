@@ -1,16 +1,6 @@
 # -*- coding: UTF-8 -*-
-## Copyright 2013 Luc Saffre
-## This file is part of the Lino project.
-## Lino is free software; you can redistribute it and/or modify 
-## it under the terms of the GNU General Public License as published by
-## the Free Software Foundation; either version 3 of the License, or
-## (at your option) any later version.
-## Lino is distributed in the hope that it will be useful, 
-## but WITHOUT ANY WARRANTY; without even the implied warranty of
-## MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the 
-## GNU General Public License for more details.
-## You should have received a copy of the GNU General Public License
-## along with Lino; if not, see <http://www.gnu.org/licenses/>.
+# Copyright 2013-2019 Rumma & Ko Ltd
+# License: BSD (see file COPYING for details)
 
 """
 The `models` module for `lino_logos.lib.bibles`.
@@ -19,8 +9,7 @@ The `models` module for `lino_logos.lib.bibles`.
 
 from __future__ import unicode_literals
 
-import logging
-logger = logging.getLogger(__name__)
+import logging ; logger = logging.getLogger(__name__)
 
 import os
 import datetime
@@ -31,8 +20,7 @@ from django.core.exceptions import ValidationError
 from django.core.exceptions import MultipleObjectsReturned
 from django.utils.safestring import mark_safe
 from django.utils.translation import ugettext_lazy as _
-from django.utils.translation import string_concat
-from django.utils.encoding import force_text 
+from django.utils.encoding import force_text
 from django.utils.functional import lazy
 
 from lino.api import dd
@@ -197,9 +185,9 @@ class VersesParams(object):
     #~ def p_chapter_choices(cls,p_edition,p_book):
         if False:
             # TODO: context for ChoiceListField doesn't yet get passed
-            print p_book
+            print(p_book)
             qs = Verse.objects.filter(book=p_book)
-            print 20131012, qs.query
+            print( 20131012, qs.query)
             chapters = qs.values_list('chapter',flat=True)
             #~ print 20131012, chapters
             chapters = list(set(chapters))
