@@ -15,7 +15,7 @@ The Bibles app adds models and functionality for managing Bibles
 
 from lino import ad
 
-from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import gettext_lazy as _
 
 
 class Plugin(ad.Plugin):
