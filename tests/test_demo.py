@@ -6,7 +6,7 @@ from lino.utils.pythontest import TestCase
 
 class TestCase(TestCase):
 
-    demo_projects_root = 'lino_logo/projects'
+    demo_projects_root = 'lino_logos/projects'
 
     def test_sacred(self):
         self.do_test_demo_project('sacred')
