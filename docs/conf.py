@@ -51,21 +51,8 @@ settings.SITE.title = "Lino-Logos Reference Manual"
 # extensions.append('atelier.sphinxconf')
 
 
-primary_domain = 'py'
-
-
-
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['.templates']
-
-# The suffix of source filenames.
-source_suffix = '.rst'
-
-# The encoding of source files.
-#source_encoding = 'utf-8'
-
-# The master toctree document.
-master_doc = 'index'
 
 # General information about the project.
 project = settings.SITE.title
@@ -203,7 +190,7 @@ htmlhelp_basename = 'bibles'
 #~ show_source = True
 
 #~ srcref_base_uri="http://code.google.com/lino"
-#~ srcref_base_uri="http://code.google.com/p/lino/source/browse/#hg" 
+#~ srcref_base_uri="http://code.google.com/p/lino/source/browse/#hg"
 
 
 
@@ -222,4 +209,3 @@ extlinks = {
   'checkin': ('http://code.google.com/p/lino-logos/source/detail?r=%s', 'Checkin '),
   'srcref': ('http://code.google.com/p/lino-logos/source/browse%s', ''),
 }
-
