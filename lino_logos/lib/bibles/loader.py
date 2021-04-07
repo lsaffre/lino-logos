@@ -1,20 +1,6 @@
 ## Copyright 2013-2015 Luc Saffre
-## This file is part of the Lino project.
-## Lino is free software; you can redistribute it and/or modify 
-## it under the terms of the GNU General Public License as published by
-## the Free Software Foundation; either version 3 of the License, or
-## (at your option) any later version.
-## Lino is distributed in the hope that it will be useful, 
-## but WITHOUT ANY WARRANTY; without even the implied warranty of
-## MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the 
-## GNU General Public License for more details.
-## You should have received a copy of the GNU General Public License
-## along with Lino; if not, see <http://www.gnu.org/licenses/>.
+# License: GNU Affero General Public License v3 (see file COPYING for details)
 
-"""
-"""
-
-from __future__ import unicode_literals
 
 import re
 
@@ -35,27 +21,27 @@ class Loader(object):
     #~ current_chapter = None
     current_book = None
     current_edition = None
-    
+
     def edition(self,language,abbr,name):
         self.current_edition = Edition(name=name,language_id=language,abbr=abbr)
         self.current_section = self.current_book = None
         return self.current_edition
-        
+
     def set_book(self,ref):
         #~ self.current_book = bibles.Books.get_by_name(ref)
         self.current_book = bibles.Book.objects.get(ref=ref)
-        
+
     #~ def chapter(self,title):
         #~ self.current_chapter = Section(title=title,parent=self.current_book)
         #~ self.current_section = self.current_chapter
         #~ return self.current_chapter
-        
+
     def subsection(self,title):
         return self.section_(title,parent=self.current_section)
 
     def section(self, title):
         """
-        Terminate current section and start a new one at 
+        Terminate current section and start a new one at
         the same level.
         """
         if self.current_section is None:
@@ -67,14 +53,14 @@ class Loader(object):
             title=title,
             edition=self.current_edition,**kw)
         return self.current_section
-        
+
     def end_section(self,title=None):
         if title is not None:
             assert self.current_section.title == title
         self.current_section = self.current_section.parent
 
     def parse_line(self, chapter, ln, verse):
-        mo = VERSE_RE.match(ln) 
+        mo = VERSE_RE.match(ln)
         # http://docs.python.org/2.7/library/re.html#re.MatchObject
         if mo is None:
             return verse, ln
@@ -85,7 +71,7 @@ class Loader(object):
         # print 20131120, verseno, text
 
         # lns = ln.strip()
-        # if not lns: 
+        # if not lns:
         #    return None, None
 
         verse_kw = dict()
@@ -116,7 +102,7 @@ class Loader(object):
                 verse.save()
 
         return verse, text
-        
+
     def verses(self,chapter,verses):
         verse = None
         chapter = int(chapter)
@@ -127,8 +113,8 @@ class Loader(object):
                     edition=self.current_edition,
                     section=self.current_section,
                     text=text)
-    
-        
+
+
 loader = Loader()
 set_book = loader.set_book
 edition = loader.edition

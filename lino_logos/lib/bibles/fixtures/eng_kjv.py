@@ -1,32 +1,20 @@
 # -*- coding: UTF-8 -*-
 ## Copyright 2013 Luc Saffre
-## This file is part of the Lino project.
-## Lino is free software; you can redistribute it and/or modify 
-## it under the terms of the GNU General Public License as published by
-## the Free Software Foundation; either version 3 of the License, or
-## (at your option) any later version.
-## Lino is distributed in the hope that it will be useful, 
-## but WITHOUT ANY WARRANTY; without even the implied warranty of
-## MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the 
-## GNU General Public License for more details.
-## You should have received a copy of the GNU General Public License
-## along with Lino; if not, see <http://www.gnu.org/licenses/>.
+# License: GNU Affero General Public License v3 (see file COPYING for details)
 
 """
 Loads the King James Version
 """
 
-from __future__ import unicode_literals
-
 from lino_logos.lib.bibles.loader import *
 
 
 def objects():
-        
+
     yield edition("eng", "KJV", "King James Bible (1611 Authorized Version)")
-    
+
     set_book("genesis")
-    
+
     yield section("Chapter 1")
 
     yield verses(1,"""
@@ -62,9 +50,9 @@ def objects():
 30 And to every beast of the earth, and to every fowl of the air, and to every thing that creepeth upon the earth, wherein [there is] life, [I have given] every green herb for meat: and it was so.
 31 And God saw every thing that he had made, and, behold, [it was] very good. And the evening and the morning were the sixth day.
 
-    
+
     """)
-    
+
     yield section("Chapter 2")
 
     yield verses(2,"""
@@ -94,5 +82,3 @@ def objects():
 24 Therefore shall a man leave his father and his mother, and shall cleave unto his wife: and they shall be one flesh.
 25 And they were both naked, the man and his wife, and were not ashamed.
     """)
-
-
