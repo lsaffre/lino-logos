@@ -52,7 +52,7 @@ settings.SITE.title = "Lino-Logos Reference Manual"
 
 
 # Add any paths that contain templates here, relative to this directory.
-templates_path = ['.templates']
+# templates_path = ['.templates']
 
 # General information about the project.
 project = settings.SITE.title

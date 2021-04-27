@@ -6,7 +6,7 @@ SETUP_INFO = dict(
     version='0.0.1',
     install_requires=['lino'],
     test_suite='tests',
-    description="A Lino application for managing bible editions",
+    description="A Django Lino application for managing bible editions",
     long_description="""\
 Lino Logos is a `Lino <https://www.lino-framework.org>`__
 application for discussing about bible verses.
@@ -62,8 +62,8 @@ TODO:
 
 
 """,
-    author='Luc Saffre',
-    author_email='luc.saffre@gmail.com',
+    author='Rumma & Ko Ltd',
+    author_email='info@lino-framework.org',
     url="https://github.com/lsaffre/lino-logos",
     license_files=['COPYING'],
     classifiers="""\
