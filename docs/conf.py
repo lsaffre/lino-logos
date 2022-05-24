@@ -13,7 +13,7 @@ import sys, os
 from importlib import import_module
 
 intersphinx_mapping = {}
-from atelier.sphinxconf import interproject
+from rstgen.sphinxconf import interproject
 interproject.configure(
     globals(), 'atelier lino_book lino_logos')
 
@@ -48,7 +48,7 @@ settings.SITE.title = "Lino-Logos Reference Manual"
 
 #~ extensions.append('sphinxcontrib.autorun')
 
-# extensions.append('atelier.sphinxconf')
+# extensions.append('rstgen.sphinxconf')
 
 
 # Add any paths that contain templates here, relative to this directory.
