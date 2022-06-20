@@ -204,8 +204,8 @@ htmlhelp_basename = 'bibles'
 
 
 
-extlinks = {
-  'issue': ('http://code.google.com/p/lino-logos/issues/detail?id=%s', 'Issue '),
-  'checkin': ('http://code.google.com/p/lino-logos/source/detail?r=%s', 'Checkin '),
-  'srcref': ('http://code.google.com/p/lino-logos/source/browse%s', ''),
-}
+# extlinks = {
+#   'issue': ('http://code.google.com/p/lino-logos/issues/detail?id=%s', 'Issue '),
+#   'checkin': ('http://code.google.com/p/lino-logos/source/detail?r=%s', 'Checkin '),
+#   'srcref': ('http://code.google.com/p/lino-logos/source/browse%s', ''),
+# }
