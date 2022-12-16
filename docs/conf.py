@@ -125,7 +125,7 @@ pygments_style = 'sphinx'
 # of the sidebar.
 #~ html_logo = 'logo.jpg'
 # html_logo = 'lino-logo-2.png'
-html_logo = 'logo.png'
+# html_logo = 'logo.png'
 
 # The name of an image file (within the static path) to use as favicon of the
 # docs.  This file should be a Windows icon file (.ico) being 16x16 or 32x32
@@ -135,7 +135,7 @@ html_logo = 'logo.png'
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
-html_static_path = ['.static']
+# html_static_path = ['.static']
 
 # If not '', a 'Last updated on:' timestamp is inserted at every page bottom,
 # using the given strftime format.
