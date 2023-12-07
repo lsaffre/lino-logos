@@ -105,6 +105,8 @@ class Section(mixins.Sequenced, mixins.Hierarchical):
             level += 1
             h = headertag(level)
 
+        if self.pk is None: return
+
         #~ for v in Verse.objects.filter(section=self).order_by('seqno'):
         for v in VerseText.objects.filter(section=self):
             yield E.span(v.text)
