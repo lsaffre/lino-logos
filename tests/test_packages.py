@@ -3,6 +3,7 @@
 from lino_logos import SETUP_INFO
 from lino.utils.pythontest import TestCase
 
+
 class PackagesTests(TestCase):
 
     def test_packages(self):

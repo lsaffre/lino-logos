@@ -91,14 +91,15 @@ SETUP_INFO.update(packages=[
     'lino_logos.tests',
 ])
 
-SETUP_INFO.update(message_extractors={
-    'lino_logos': [
-        ('**/cache/**',          'ignore', None),
-        ('**.py',                'python', None),
-        ('**.js',                'javascript', None),
-        ('**/templates_jinja/**.html', 'jinja2', None),
-    ],
-})
+SETUP_INFO.update(
+    message_extractors={
+        'lino_logos': [
+            ('**/cache/**', 'ignore', None),
+            ('**.py', 'python', None),
+            ('**.js', 'javascript', None),
+            ('**/templates_jinja/**.html', 'jinja2', None),
+        ],
+    })
 
 SETUP_INFO.update(package_data=dict())
 
@@ -108,8 +109,8 @@ def add_package_data(package, *patterns):
     l.extend(patterns)
     return l
 
-add_package_data('lino_logos',
-                 'config/bibles/Edition/*.odt',
+
+add_package_data('lino_logos', 'config/bibles/Edition/*.odt',
                  'config/bibles/Verse/*.odt')
 
 l = add_package_data('lino_logos')

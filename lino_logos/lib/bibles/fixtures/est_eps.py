@@ -1,27 +1,27 @@
 # -*- coding: utf-8 -*-
 # Copyright 2013 Luc Saffre
 # License: GNU Affero General Public License v3 (see file COPYING for details)
-
 """
 Loads some random excerps from the edition
 found on http://www.piibel.net/ (copyright Eesti Piibli Selts).
 
 """
 
-
 from __future__ import unicode_literals
 
 from lino_logos.lib.bibles.loader import *
 
+
 def objects():
 
-    yield edition("est","EPS","Piibel")
+    yield edition("est", "EPS", "Piibel")
 
     set_book("genesis")
 
     yield section("Jumal loob ja õnnistab maailma")
 
-    yield verses(1,"""
+    yield verses(
+        1, """
 1 Alguses lõi Jumal taeva ja maa.
 2 Maa oli tühi ja paljas ja pimedus oli sügavuse peal ja Jumala Vaim hõljus vete kohal.
 3 Ja Jumal ütles: „Saagu valgus!” Ja valgus sai.
@@ -63,7 +63,8 @@ def objects():
 31 Ja Jumal vaatas kõike, mis ta oli teinud, ja vaata, see oli väga hea. Siis sai õhtu ja sai hommik - kuues päev.
 """)
 
-    yield verses(2,"""
+    yield verses(
+        2, """
     1 Nõnda on taevas ja maa ning kõik nende väed valmis saanud.
     2 Ja Jumal oli lõpetanud seitsmendaks päevaks oma töö, mis ta tegi, ja hingas seitsmendal päeval kõigist oma tegudest, mis ta oli teinud.
     3 Ja Jumal õnnistas seitsmendat päeva ja pühitses seda, sest ta oli siis hinganud kõigist oma tegudest, mis Jumal luues oli teinud.
@@ -73,7 +74,8 @@ def objects():
 
     yield section("Aadam ja Eeva")
 
-    yield verses(2,"""
+    yield verses(
+        2, """
     4 See on lugu taeva ja maa sündimisest, kui need loodi. Sel ajal, kui Issand Jumal tegi maa ja taeva,
     5 kui ainsatki väljapõõsast ei olnud veel maa peal ja ainsatki väljarohtu ei olnud veel tärganud, sest Issand Jumal ei olnud lasknud vihma sadada maa peale, ja inimest ei olnud põldu harimas,
     6 tõusis udu maast ja kastis kogu mullapinda.
@@ -105,7 +107,8 @@ def objects():
 
     yield section("Jeesuse põlvnemine")
 
-    yield verses(1, """
+    yield verses(
+        1, """
 1 Jeesuse Kristuse, Aabrahami poja, Taaveti poja sugupuu:
 2 Aabrahamile sündis Iisak, Iisakile sündis Jaakob, Jaakobile
 sündisid Juuda ja tema vennad,

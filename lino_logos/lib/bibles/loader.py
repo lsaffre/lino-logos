@@ -1,7 +1,6 @@
 ## Copyright 2013-2015 Luc Saffre
 # License: GNU Affero General Public License v3 (see file COPYING for details)
 
-
 import re
 
 from lino.api import dd, rt
@@ -22,22 +21,24 @@ class Loader(object):
     current_book = None
     current_edition = None
 
-    def edition(self,language,abbr,name):
-        self.current_edition = Edition(name=name,language_id=language,abbr=abbr)
+    def edition(self, language, abbr, name):
+        self.current_edition = Edition(name=name,
+                                       language_id=language,
+                                       abbr=abbr)
         self.current_section = self.current_book = None
         return self.current_edition
 
-    def set_book(self,ref):
+    def set_book(self, ref):
         #~ self.current_book = bibles.Books.get_by_name(ref)
         self.current_book = bibles.Book.objects.get(ref=ref)
 
     #~ def chapter(self,title):
-        #~ self.current_chapter = Section(title=title,parent=self.current_book)
-        #~ self.current_section = self.current_chapter
-        #~ return self.current_chapter
+    #~ self.current_chapter = Section(title=title,parent=self.current_book)
+    #~ self.current_section = self.current_chapter
+    #~ return self.current_chapter
 
-    def subsection(self,title):
-        return self.section_(title,parent=self.current_section)
+    def subsection(self, title):
+        return self.section_(title, parent=self.current_section)
 
     def section(self, title):
         """
@@ -48,13 +49,13 @@ class Loader(object):
             return self.subsection(title)
         return self.section_(title, parent=self.current_section.parent)
 
-    def section_(self,title,**kw):
-        self.current_section = Section(
-            title=title,
-            edition=self.current_edition,**kw)
+    def section_(self, title, **kw):
+        self.current_section = Section(title=title,
+                                       edition=self.current_edition,
+                                       **kw)
         return self.current_section
 
-    def end_section(self,title=None):
+    def end_section(self, title=None):
         if title is not None:
             assert self.current_section.title == title
         self.current_section = self.current_section.parent
@@ -103,16 +104,16 @@ class Loader(object):
 
         return verse, text
 
-    def verses(self,chapter,verses):
+    def verses(self, chapter, verses):
         verse = None
         chapter = int(chapter)
         for ln in verses.splitlines():
-            verse,text = self.parse_line(chapter,ln,verse)
+            verse, text = self.parse_line(chapter, ln, verse)
             if verse and text:
                 yield VerseText(verse=verse,
-                    edition=self.current_edition,
-                    section=self.current_section,
-                    text=text)
+                                edition=self.current_edition,
+                                section=self.current_section,
+                                text=text)
 
 
 loader = Loader()
@@ -122,6 +123,5 @@ edition = loader.edition
 section = loader.section
 end_section = loader.end_section
 verses = loader.verses
-
 
 # __all__ = ['set_book','edition','section','end_section','verses']

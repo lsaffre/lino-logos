@@ -1,7 +1,6 @@
 # -*- coding: UTF-8 -*-
 # Copyright 2013-2019 Rumma & Ko Ltd
 # License: GNU Affero General Public License v3 (see file COPYING for details)
-
 """
 The `models` module for `lino_logos.lib.bibles`.
 
@@ -33,24 +32,24 @@ def headertag(level):
     tagname = "h" + str(level)
     return getattr(E, tagname)
 
+
 #~ contacts = dd.resolve_app('contacts')
 #~ countries = dd.resolve_app('countries')
 languages = dd.resolve_app('languages')
 
-
 #~ class Book(dd.Choice):
-    #~ abbr = dd.BabelCharField(_("Abbreviation"),max_length=20)
-    #~
+#~ abbr = dd.BabelCharField(_("Abbreviation"),max_length=20)
+#~
 #~ class Books(dd.ChoiceList):
-    #~
-    #~ verbose_name = _("Book")
-    #~ verbose_name_plural = _("Books")
-    #~ item_class = Book
-    #~
-    #~ @classmethod
-    #~ def add_item(cls,value,text,ref,abbr):
-        #~ super(Books,cls).add_item(value,text,ref,abbr=abbr)
-    #~
+#~
+#~ verbose_name = _("Book")
+#~ verbose_name_plural = _("Books")
+#~ item_class = Book
+#~
+#~ @classmethod
+#~ def add_item(cls,value,text,ref,abbr):
+#~ super(Books,cls).add_item(value,text,ref,abbr=abbr)
+#~
 #~ Books.add_item("101",_("Genesis"),"genesis",_("Gen"))
 #~ Books.add_item("102",_("Exodus"),"exodus",_("Ex"))
 #~ Books.add_item("103",_("Leviticus"),"leviticus",_("Ex"))
@@ -122,7 +121,8 @@ class SectionLayout(dd.DetailLayout):
     parent seqno id edition
     VerseTextsBySection
     SectionsBySection
-    """, label=_("Elements"))
+    """,
+                        label=_("Elements"))
 
 
 class Sections(dd.Table):
@@ -142,6 +142,7 @@ class SectionsByEdition(Sections):
 
 
 class Verse(Commentable):
+
     class Meta:
         verbose_name = _("Verse")
         verbose_name_plural = _("Verses")
@@ -152,7 +153,9 @@ class Verse(Commentable):
     #~ book = Books.field()
     verseno = models.IntegerField(_("Number"), help_text=_("Verse number"))
     verseno_suffix = models.CharField(
-        _("Suffix"), max_length=5, blank=True,
+        _("Suffix"),
+        max_length=5,
+        blank=True,
         help_text=_("Optional a,b,c behind verse number"))
 
     def __unicode__(self):
@@ -162,6 +165,7 @@ class Verse(Commentable):
 
 class VerseText(dd.Model):
     "The text of a given Verse in a given Edition"
+
     class Meta:
         verbose_name = _("Verse")
         verbose_name_plural = _("Verses")
@@ -173,22 +177,22 @@ class VerseText(dd.Model):
 
 
 class VersesParams(object):
-    parameters = dict(
-        p_edition=dd.ForeignKey(Edition),
-        p_chapter=models.IntegerField(_("Chapter"), blank=True, null=True),
-        p_book=dd.ForeignKey(Book,blank=True,null=True)
-    )
+    parameters = dict(p_edition=dd.ForeignKey(Edition),
+                      p_chapter=models.IntegerField(_("Chapter"),
+                                                    blank=True,
+                                                    null=True),
+                      p_book=dd.ForeignKey(Book, blank=True, null=True))
     params_layout = "p_edition p_book p_chapter"
 
     @dd.chooser(simple_values=True)
     def p_chapter_choices(cls):
-    #~ def p_chapter_choices(cls,p_edition,p_book):
+        #~ def p_chapter_choices(cls,p_edition,p_book):
         if False:
             # TODO: context for ChoiceListField doesn't yet get passed
             print(p_book)
             qs = Verse.objects.filter(book=p_book)
-            print( 20131012, qs.query)
-            chapters = qs.values_list('chapter',flat=True)
+            print(20131012, qs.query)
+            chapters = qs.values_list('chapter', flat=True)
             #~ print 20131012, chapters
             chapters = list(set(chapters))
             return chapters
@@ -215,29 +219,30 @@ class VerseTextsByVerse(VerseTexts):
     column_names = 'text edition section'
     auto_fit_column_widths = True
 
+
 #~ class Verses(VersesParams,dd.Table):
-    #~ model = Verse
-    #~ order_by = ['verseno','verseno_suffix']
-    #~ detail_layout = """
-    #~ edition book verseno section id
-    #~ text
-    #~ """
-    #~ column_names = "verseno text"
-    #~
-    #~
-    #~ @classmethod
-    #~ def get_request_queryset(self,ar):
-        #~ if not ar.param_values.p_edition:
-            #~ return []
-        #~ qs = super(Verses,self).get_request_queryset(ar)
-        #~ if isinstance(qs,list): return qs
-        #~ qs = qs.filter(edition=ar.param_values.p_edition)
-        #~ if ar.param_values.p_book:
-            #~ qs = qs.filter(book=ar.param_values.p_book)
-        #~ if ar.param_values.p_chapter:
-            #~ qs = qs.filter(chapter=ar.param_values.p_chapter)
-            #~
-        #~ return qs
+#~ model = Verse
+#~ order_by = ['verseno','verseno_suffix']
+#~ detail_layout = """
+#~ edition book verseno section id
+#~ text
+#~ """
+#~ column_names = "verseno text"
+#~
+#~
+#~ @classmethod
+#~ def get_request_queryset(self,ar):
+#~ if not ar.param_values.p_edition:
+#~ return []
+#~ qs = super(Verses,self).get_request_queryset(ar)
+#~ if isinstance(qs,list): return qs
+#~ qs = qs.filter(edition=ar.param_values.p_edition)
+#~ if ar.param_values.p_book:
+#~ qs = qs.filter(book=ar.param_values.p_book)
+#~ if ar.param_values.p_chapter:
+#~ qs = qs.filter(chapter=ar.param_values.p_chapter)
+#~
+#~ return qs
 
 
 class VerseTextsBySection(VerseTexts):
@@ -245,16 +250,17 @@ class VerseTextsBySection(VerseTexts):
     column_names = "verse text"
     auto_fit_column_widths = True
 
+
 LEFT = _("Left")
 RIGHT = _("Right")
 
 
 class SideBySideVerses(VersesParams, dd.VirtualTable):
     parameters = dict(
-        edition1 = dd.ForeignKey(Edition,verbose_name=LEFT),
-        edition2 = dd.ForeignKey(Edition,verbose_name=RIGHT),
-        p_chapter = models.IntegerField(_("Chapter"),blank=True,null=True),
-        p_book = dd.ForeignKey(Book,blank=True,null=True),
+        edition1=dd.ForeignKey(Edition, verbose_name=LEFT),
+        edition2=dd.ForeignKey(Edition, verbose_name=RIGHT),
+        p_chapter=models.IntegerField(_("Chapter"), blank=True, null=True),
+        p_book=dd.ForeignKey(Book, blank=True, null=True),
         #~ p_book = Books.field(blank=True,null=True)
     )
 
@@ -263,7 +269,7 @@ class SideBySideVerses(VersesParams, dd.VirtualTable):
     variable_row_height = True
 
     @classmethod
-    def get_data_rows(cls,ar):
+    def get_data_rows(cls, ar):
         qs = VerseText.objects.all()
         if ar.param_values.p_book:
             qs = qs.filter(verse__book=ar.param_values.p_book)
@@ -271,12 +277,12 @@ class SideBySideVerses(VersesParams, dd.VirtualTable):
             qs = qs.filter(verse__chapter=ar.param_values.p_chapter)
         verses = dict()
         versenos = []
-        for obj in qs.order_by('verse__verseno','verse__verseno_suffix'):
+        for obj in qs.order_by('verse__verseno', 'verse__verseno_suffix'):
             k = obj.verse.pk
-            v = verses.get(k,None)
+            v = verses.get(k, None)
             if v is None:
                 versenos.append(k)
-                v = AttrDict(pk=k,left='',right='',verse=obj.verse)
+                v = AttrDict(pk=k, left='', right='', verse=obj.verse)
                 verses[k] = v
             if obj.edition == ar.param_values.edition1:
                 v.left = obj.text
@@ -286,17 +292,17 @@ class SideBySideVerses(VersesParams, dd.VirtualTable):
             yield verses[k]
 
     @classmethod
-    def get_column_names(cls,ar):
+    def get_column_names(cls, ar):
         return "verseno:5 text1 text2"
 
     @dd.displayfield(_("No"))
-    def verseno(self,obj,ar):
+    def verseno(self, obj, ar):
         return unicode(obj.verse)
 
     @dd.displayfield(LEFT)
-    def text1(self,obj,ar):
+    def text1(self, obj, ar):
         return obj.left
 
     @dd.displayfield(RIGHT)
-    def text2(self,obj,ar):
+    def text2(self, obj, ar):
         return obj.right

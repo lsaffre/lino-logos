@@ -1,5 +1,4 @@
 ## Copyright 2013-2015 Luc Saffre
-
 """
 The Bibles app adds models and functionality for managing Bibles
 (different editions of the Bible).
@@ -36,4 +35,3 @@ class Plugin(ad.Plugin):
     def setup_explorer_menu(self, site, profile, m):
         m = m.add_menu(self.app_label, self.verbose_name)
         m.add_action('bibles.Sections')
-

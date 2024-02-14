@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 ## Copyright 2013 Luc Saffre
 # License: GNU Affero General Public License v3 (see file COPYING for details)
-
 """
 This module contains "quick" tests that are run on a demo database
 without any fixture. You can run only these tests by issuing::
@@ -69,13 +68,14 @@ DEMO_OVERVIEW = """\
 
 class QuickTest(RemoteAuthTestCase):
 
-
     def test00(self):
         """
         Initialization.
         """
         #~ print "20130321 test00 started"
-        self.user_root = settings.SITE.user_model(username='root',language='en',profile='900')
+        self.user_root = settings.SITE.user_model(username='root',
+                                                  language='en',
+                                                  profile='900')
         self.user_root.save()
 
 
@@ -91,4 +91,4 @@ class DemoTest(RemoteAuthTestCase):
 
         s = settings.SITE.get_db_overview_rst()
         #~ print s
-        self.assertEqual(DEMO_OVERVIEW,s)
+        self.assertEqual(DEMO_OVERVIEW, s)

@@ -1,16 +1,16 @@
 # -*- coding: utf-8 -*-
 # Copyright 2013 Luc Saffre
 # License: GNU Affero General Public License v3 (see file COPYING for details)
-
 """
 Loads the Open English Bible
 """
 
 from lino_logos.lib.bibles.loader import *
 
+
 def objects():
 
-    yield edition("eng","OEB", "Open English Bible")
+    yield edition("eng", "OEB", "Open English Bible")
 
     set_book("matthew")
 
@@ -18,7 +18,8 @@ def objects():
 
     yield section("The Birth, Parentage and Infancy")
 
-    yield verses(1,"""
+    yield verses(
+        1, """
 1 A genealogy of Jesus Christ, a descendant of David and Abraham.
 2 Abraham was the father of Isaac, Isaac of Jacob, Jacob of Judah and his brothers,
 3 Judah of Perez and Zerah, whose mother was Tamar, Perez of Hezron, Hezron of Aram,
@@ -48,7 +49,8 @@ His mother Mary was engaged to Joseph, but, before the marriage took place, she 
 25 He made Mary his wife, but they did not sleep together before the birth of her son; and to this son he gave the name Jesus.
     """)
 
-    yield verses(2,"""
+    yield verses(
+        2, """
 1 After the birth of Jesus at Bethlehem in Judea, in the reign of King Herod, some astrologers from the East arrived in Jerusalem, asking:
 2 “Where is the newborn king of the Jews? For we saw his star in the east, and have come to worship him.”
 3 When King Herod heard of this, he was much troubled, and so too was all Jerusalem.
@@ -99,7 +101,8 @@ His mother Mary was engaged to Joseph, but, before the marriage took place, she 
     """)
     yield section("The Birth, Parentage and Infancy")
 
-    yield verses(1,"""
+    yield verses(
+        1, """
 1 A genealogy of Jesus Christ, a descendant of David and Abraham.
 2 Abraham was the father of Isaac, Isaac of Jacob, Jacob of Judah and his brothers,
 3 Judah of Perez and Zerah, whose mother was Tamar, Perez of Hezron, Hezron of Aram,
@@ -129,7 +132,8 @@ His mother Mary was engaged to Joseph, but, before the marriage took place, she 
 25 He made Mary his wife, but they did not sleep together before the birth of her son; and to this son he gave the name Jesus.
     """)
 
-    yield verses(2,"""
+    yield verses(
+        2, """
 1 After the birth of Jesus at Bethlehem in Judea, in the reign of King Herod, some astrologers from the East arrived in Jerusalem, asking:
 2 “Where is the newborn king of the Jews? For we saw his star in the east, and have come to worship him.”
 3 When King Herod heard of this, he was much troubled, and so too was all Jerusalem.
@@ -180,7 +184,8 @@ His mother Mary was engaged to Joseph, but, before the marriage took place, she 
     """)
     yield section("The Birth, Parentage and Infancy")
 
-    yield verses(1,"""
+    yield verses(
+        1, """
 1 A genealogy of Jesus Christ, a descendant of David and Abraham.
 2 Abraham was the father of Isaac, Isaac of Jacob, Jacob of Judah and his brothers,
 3 Judah of Perez and Zerah, whose mother was Tamar, Perez of Hezron, Hezron of Aram,
@@ -210,7 +215,8 @@ His mother Mary was engaged to Joseph, but, before the marriage took place, she 
 25 He made Mary his wife, but they did not sleep together before the birth of her son; and to this son he gave the name Jesus.
     """)
 
-    yield verses(2,"""
+    yield verses(
+        2, """
 1 After the birth of Jesus at Bethlehem in Judea, in the reign of King Herod, some astrologers from the East arrived in Jerusalem, asking:
 2 “Where is the newborn king of the Jews? For we saw his star in the east, and have come to worship him.”
 3 When King Herod heard of this, he was much troubled, and so too was all Jerusalem.
@@ -262,7 +268,8 @@ His mother Mary was engaged to Joseph, but, before the marriage took place, she 
 
     yield section("The Preparation")
 
-    yield verses(3,"""
+    yield verses(
+        3, """
 1 About that time John the Baptist first appeared, proclaiming in the wilderness of Judea:
 2 “Repent, for the kingdom of heaven is at hand.”
 3 John was the one who was spoken of in the prophet Isaiah, where he says —
@@ -302,8 +309,8 @@ His mother Mary was engaged to Joseph, but, before the marriage took place, she 
 
     """)
 
-    yield verses(4,"""
+    yield verses(4, """
     """)
 
-    yield verses(5,"""
+    yield verses(5, """
     """)

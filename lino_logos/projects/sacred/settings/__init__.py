@@ -7,6 +7,7 @@ from lino.projects.std.settings import *
 import lino_logos
 from lino_logos import SETUP_INFO as setup_info
 
+
 class Site(Site):
 
     version = setup_info['version']
@@ -28,7 +29,6 @@ class Site(Site):
         yield 'lino.modlib.users'
         yield 'lino.modlib.comments'
         yield 'lino_logos.lib.bibles'
-
 
     # def setup_plugins(self):
     #     """
