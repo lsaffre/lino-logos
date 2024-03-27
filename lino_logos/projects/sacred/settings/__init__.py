@@ -21,8 +21,8 @@ class Site(Site):
     languages = "en de fr et"
     auto_configure_logger_names = 'lino lino_logos'
 
-    def get_installed_apps(self):
-        yield super(Site, self).get_installed_apps()
+    def get_installed_plugins(self):
+        yield super(Site, self).get_installed_plugins()
 
         yield 'lino.modlib.gfks'
         yield 'django.contrib.humanize'
