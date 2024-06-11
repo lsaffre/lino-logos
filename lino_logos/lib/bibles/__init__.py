@@ -22,16 +22,16 @@ class Plugin(ad.Plugin):
 
     needs_plugins = ['lino.modlib.languages']
 
-    def setup_main_menu(self, site, profile, m):
+    def setup_main_menu(self, site, profile, m, ar=None):
         m = m.add_menu(self.app_label, self.verbose_name)
         m.add_action('bibles.Editions')
         m.add_action('bibles.Verses')
         m.add_action('bibles.SideBySideVerses')
 
-    def setup_config_menu(self, site, profile, m):
+    def setup_config_menu(self, site, profile, m, ar=None):
         m = m.add_menu(self.app_label, self.verbose_name)
         m.add_action('bibles.Books')
 
-    def setup_explorer_menu(self, site, profile, m):
+    def setup_explorer_menu(self, site, profile, m, ar=None):
         m = m.add_menu(self.app_label, self.verbose_name)
         m.add_action('bibles.Sections')
